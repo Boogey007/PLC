@@ -1,0 +1,59 @@
+// I used an online compiler (c++ btw)
+#include<iostream>
+#include<stack>
+#include <algorithm> 
+#include <vector>
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+void static_chunkyBoi(void);
+void stack_chunkyBoi(void);
+void heap_chunkyBoi(void);
+
+int main() {
+    
+  struct timespec t1, t2;
+  int i;
+  
+  // STATIC BOI
+  clock_gettime(CLOCK_REALTIME, &t1);
+  for( i = 0; i < 500000; i++ ) {
+      static_chunkyBoi();
+  }
+  clock_gettime(CLOCK_REALTIME, &t2);
+  printf( "took %d nanosecs \n", t2.tv_nsec - t1.tv_nsec );
+  
+  // STACK BOI
+  clock_gettime(CLOCK_REALTIME, &t1);
+  for( i = 0; i < 500000; i++ ) {
+      stack_chunkyBoi();
+  }
+  clock_gettime(CLOCK_REALTIME, &t2);
+  printf( "took %d nanosecs \n", t2.tv_nsec - t1.tv_nsec );
+
+  // HEAP BOI
+  clock_gettime(CLOCK_REALTIME, &t1);
+  for( i = 0; i < 500000; i++ ) {
+      heap_chunkyBoi();
+  }
+  clock_gettime(CLOCK_REALTIME, &t2);
+  printf( "took %d nanosecs \n", t2.tv_nsec - t1.tv_nsec );
+    
+  static_chunkyBoi();
+  stack_chunkyBoi();
+  heap_chunkyBoi();
+  return 0;
+}
+
+void static_chunkyBoi(void) {
+    static int a[250000];
+}
+
+void stack_chunkyBoi(void) {
+    int b[250000];
+}
+
+void heap_chunkyBoi(void) {
+    Int *c = (int*) malloc(250000*sizeof(int));
+}
