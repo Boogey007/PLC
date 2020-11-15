@@ -1,7 +1,0 @@
-# i threw in an online compiler
-{
-    my $var = "PotatoSoup";
-    print "var is: ", ( defined $var ? $var : "Regular Soup " );
-}
-
-    print "var is: ", ( defined $var ? $var : "Regular Soup" );
