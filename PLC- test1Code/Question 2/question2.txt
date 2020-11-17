@@ -1,7 +1,5 @@
-// I used an online compiler (c++ btw)
-#include<iostream>
+// ONLINE COMPILER
 #include<stack>
-#include <algorithm> 
 #include <vector>
 #include <stdio.h>
 #include <time.h>
@@ -12,37 +10,43 @@ void stack_chunkyBoi(void);
 void heap_chunkyBoi(void);
 
 int main() {
-    
+
   struct timespec t1, t2;
   int i;
-  
+  int x,y,z = 0;
+
   // STATIC BOI
   clock_gettime(CLOCK_REALTIME, &t1);
-  for( i = 0; i < 500000; i++ ) {
-      static_chunkyBoi();
+  while ( x < 250000 ) {
+    static_chunkyBoi ();
+    x++;
   }
   clock_gettime(CLOCK_REALTIME, &t2);
-  printf( "took %d nanosecs \n", t2.tv_nsec - t1.tv_nsec );
-  
+  printf( static_chunkyBoi took %d nanosecs \n, t2.tv_nsec - t1.tv_nsec );
+
   // STACK BOI
   clock_gettime(CLOCK_REALTIME, &t1);
-  for( i = 0; i < 500000; i++ ) {
-      stack_chunkyBoi();
-  }
+   while ( y < 250000 ) {
+        stack_chunkyBoi();
+        y++;
+   }
   clock_gettime(CLOCK_REALTIME, &t2);
-  printf( "took %d nanosecs \n", t2.tv_nsec - t1.tv_nsec );
+  printf( stack_chunkyBoi took %d nanosecs \n, t2.tv_nsec - t1.tv_nsec );
+
 
   // HEAP BOI
   clock_gettime(CLOCK_REALTIME, &t1);
-  for( i = 0; i < 500000; i++ ) {
+  while ( z < 250000 ) {
       heap_chunkyBoi();
-  }
+      z++;
+   }
   clock_gettime(CLOCK_REALTIME, &t2);
-  printf( "took %d nanosecs \n", t2.tv_nsec - t1.tv_nsec );
-    
+  printf( heap_chunkyBoi took %d nanosecs \n, t2.tv_nsec - t1.tv_nsec );
+
   static_chunkyBoi();
   stack_chunkyBoi();
   heap_chunkyBoi();
+
   return 0;
 }
 
@@ -55,5 +59,5 @@ void stack_chunkyBoi(void) {
 }
 
 void heap_chunkyBoi(void) {
-    Int *c = (int*) malloc(250000*sizeof(int));
+    int *c = (int*) malloc(250000*sizeof(int));
 }
